@@ -45,6 +45,7 @@ class Scraper
       end
     end
     bio = doc.css("div.description-holder")
+    binding.pry
         if bio != nil
       student_profile[:bio] = bio.text
     end
