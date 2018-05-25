@@ -22,7 +22,7 @@ class Scraper
   end
   
   def get_link(linkObject)
-    link = linkObject.attribute[0].values
+    link = linkObject.attribute['href'].value
   end
 
   def self.scrape_profile_page(profile_url)
