@@ -32,10 +32,8 @@ class Scraper
     html = open(profile_url)
     doc = Nokogiri::HTML(html)
     social_media = doc.css("div.social-icon-container a")
-   # binding.pry
     social_media.each do |linkObject|
       linkText = self.get_link(linkObject)
-      binding.pry
       if linkText.include?("twitter")
         student_profile[:twitter] = linkText
       elsif linkText.include?("linkedin")
@@ -47,12 +45,13 @@ class Scraper
       end
     end
     bio = doc.css("div.description-holder")
+        if bio != nil
+      student_profile[:bio] = bio.text
+    end
+
+    quote = doc.css("div.profile-quote")
     if quote != nil
       student_profile[:profile_quote] = quote.text
-    end
-    quote = doc.css("div.profile-quote")
-    if bio != nil
-      student_profile[:bio] = bio.text
     end
     student_profile
   end
