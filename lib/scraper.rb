@@ -44,7 +44,7 @@ class Scraper
         student_profile[:blog] = linkText
       end
     end
-    quote = doc.css("")
+    quote = doc.css("div.description-holder")
     if quote != nil
       student_profile[:profile_quote] = quote.text
     end
