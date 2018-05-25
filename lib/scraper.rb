@@ -48,7 +48,7 @@ class Scraper
     if quote != nil
       student_profile[:profile_quote] = quote.text
     end
-    quote = doc.css("div.profile_quote")
+    quote = doc.css("div.profile-quote")
     if bio != nil
       student_profile[:bio] = bio.text
     end
