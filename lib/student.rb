@@ -10,9 +10,9 @@ class Student
   end
 
   def self.create_from_collection(students_array)
-    student_indexes = []
-    s = Scraper.new
-    s.
+    students_array.each do |student|
+      puts student
+    end
   end
 
   def add_student_attributes(attributes_hash)
