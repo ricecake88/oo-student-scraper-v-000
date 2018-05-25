@@ -44,11 +44,11 @@ class Scraper
         student_profile[:blog] = linkText
       end
     end
-    quote = doc.css("div.description-holder")
+    bio = doc.css("div.description-holder")
     if quote != nil
       student_profile[:profile_quote] = quote.text
     end
-    bio = doc.css("")
+    quote = doc.css("body > div.main-wrapper.profile > div.vitals-container > div.vitals-text-container > div")
     if bio != nil
       student_profile[:bio] = bio.text
     end
