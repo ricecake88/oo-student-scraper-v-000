@@ -8,18 +8,21 @@ class Scraper
     student_index = []
     html = open(index_url)
     doc = Nokogiri::HTML(html)
-    binding.pry
-    students = doc.css("div.student-card")
-    students.each_with_index |student, index|
+    student_profiles = doc.css("div.student-card")
+    names = doc.css("div.card-text-container h4.student-name")
+    locations = doc.css("div.card-text-container p.student-location")
+    urls = doc.css("div.student-card a")
+    student_profiles.each_with_index do |student, index|
       name = names[index].text
-      location = location[index].text
-      student_index << {:name=>name, :profile_url=> url, :location=>location}
+      location = locations[index].text
+      url = urls[index].attributes['href'].value
+      student_index << {:name=>name, :profile_url=>url, :location=>location}
     end
     student_index
   end
   
   def get_link(linkObject)
-    link = linkObject.attribute[0].values || ""
+    link = linkObject.attribute[0].values
   end
 
   def self.scrape_profile_page(profile_url)
@@ -27,8 +30,7 @@ class Scraper
     student_profile = {}
     html = open(profile_url)
     doc = Nokogiri::HTML(html)
-    social_media = doc.css("div.social-icon-container a")
-    binding.pry
+    social_media = doc.css("")
     social_media.each do |linkObject|
       linkText = get_link(linkObject)
       if linkText.include?("twitter")
