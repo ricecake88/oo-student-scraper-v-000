@@ -45,10 +45,7 @@ class Scraper
       end
     end
     bio = doc.css("div.description-holder p")
-        if bio != nil
-      student_profile[:bio] = bio.text
-    end
-
+    student_profile[:bio] = bio.text if bio != nil
     quote = doc.css("div.profile-quote")
     student_profile[:profile_quote] = quote.text if quote != nil
     student_profile
