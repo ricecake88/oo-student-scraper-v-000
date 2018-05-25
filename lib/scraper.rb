@@ -35,6 +35,7 @@ class Scraper
    # binding.pry
     social_media.each do |linkObject|
       linkText = get_link(linkObject)
+      binding.pry
       if linkText.include?("twitter")
         student_profile[:twitter] = linkText
       elsif linkText.include?("linkedin")
