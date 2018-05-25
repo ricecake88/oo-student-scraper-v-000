@@ -21,7 +21,7 @@ class Scraper
     student_index
   end
   
-  def get_link(linkObject)
+  def self.get_link(linkObject)
     link = linkObject.attribute['href'].value
     binding.pry
   end
