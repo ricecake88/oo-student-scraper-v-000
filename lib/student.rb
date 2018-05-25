@@ -17,7 +17,7 @@ class Student
 
   def add_student_attributes(attributes_hash)
     self.twitter = attributes_hash[:twitter]
-    puts @twitter
+    self.bio = attributes_hash[:bio]
   end
 
   def self.all
