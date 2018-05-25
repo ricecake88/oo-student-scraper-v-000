@@ -22,7 +22,7 @@ class Scraper
   end
   
   def self.get_link(linkObject)
-    link = linkObject.attribute['href'].value
+    link = linkObject.attributes['href'].value
     binding.pry
   end
 
