@@ -44,7 +44,7 @@ class Scraper
         student_profile[:blog] = linkText
       end
     end
-    bio = doc.css("div.description-holder")
+    bio = doc.css("div.description-holder p")
     binding.pry
         if bio != nil
       student_profile[:bio] = bio.text
